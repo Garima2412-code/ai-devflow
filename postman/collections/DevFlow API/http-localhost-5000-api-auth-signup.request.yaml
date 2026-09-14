@@ -15,5 +15,5 @@ body:
 
     }"
 auth:
-  type: bearer
+  type: noauth
 order: 1789407778072

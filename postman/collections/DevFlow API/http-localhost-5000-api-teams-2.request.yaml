@@ -1,0 +1,8 @@
+$kind: http-request
+name: http://localhost:5000/api/teams
+description: ""
+url: http://localhost:5000/api/teams
+method: GET
+auth:
+  type: noauth
+order: 4480037170873298

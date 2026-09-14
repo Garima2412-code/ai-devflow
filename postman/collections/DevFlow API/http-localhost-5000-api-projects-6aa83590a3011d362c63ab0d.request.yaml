@@ -1,0 +1,8 @@
+$kind: http-request
+name: http://localhost:5000/api/projects/6aa83590a3011d362c63ab0d
+description: ""
+url: http://localhost:5000/api/projects/6aa83590a3011d362c63ab0d
+method: GET
+auth:
+  type: noauth
+order: 4399711593797839

@@ -1,0 +1,11 @@
+$kind: http-request
+name: http://localhost:5000/api/projects
+description: ""
+url: http://localhost:5000/api/projects
+method: POST
+body:
+  type: json
+  content: '   { "name": "ShopKart Web", "description": "Main e-commerce site", "teamId": "6aa82bfac5484b520cb0b525" }'
+auth:
+  type: noauth
+order: 4424927253185043
