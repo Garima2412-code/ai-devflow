@@ -1,0 +1,19 @@
+$kind: http-request
+name: http://localhost:5000/api/auth/signup
+description: ""
+url: http://localhost:5000/api/auth/signup
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Garima\",\r
+
+    \  \"email\": \"test2@example.com\",\r
+
+    \  \"password\": \"test1234\"\r
+
+    }"
+auth:
+  type: bearer
+order: 1789407778072

@@ -1,0 +1,13 @@
+$kind: http-request
+name: http://localhost:5000/api/teams
+description: ""
+url: http://localhost:5000/api/teams
+method: POST
+body:
+  type: json
+  content: '   { "name": "ShopKart Team" }'
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0szv}}"
+order: 2284374414478336
