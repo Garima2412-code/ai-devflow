@@ -5,11 +5,11 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./src/config/db.js');
 const authRoutes = require('./src/routes/authRoute.js');
-
+const teamRoutes = require('./src/routes/teamRoutes');
 const app = express();
 app.use(express.json());
 app.use('/api/auth', authRoutes);
-
+app.use('/api/teams', teamRoutes);
 connectDB();
 
 app.use(cors());
