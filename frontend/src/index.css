@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surfaces */
+  --color-surface-0: #FFFFFF;
+  --color-surface-1: #F6F7F8;
+  --color-surface-2: #EDEEF0;
+  --color-border: #DFE1E4;
+
+  /* Text */
+  --color-text-primary: #14161A;
+  --color-text-secondary: #5B616B;
+  --color-text-tertiary: #8B909A;
+
+  /* Accent */
+  --color-accent: #2952CC;
+  --color-accent-hover: #1F3FA3;
+
+  /* Semantic - priority */
+  --color-priority-high: #B4442E;
+  --color-priority-medium: #B98900;
+  --color-priority-low: #5B616B;
+
+  /* Semantic - status */
+  --color-status-todo: #8B909A;
+  --color-status-progress: #2952CC;
+  --color-status-review: #B98900;
+  --color-status-done: #2E7D4F;
+
+  /* Typography */
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --text-page-title: 20px;
+  --text-section-heading: 15px;
+  --text-body: 14px;
+  --text-small: 12.5px;
+  --text-micro: 11px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+
+  /* Layout */
+  --spacing-sidebar: 240px;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-0);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
