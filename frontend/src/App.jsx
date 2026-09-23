@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import Teams from './pages/Teams';
 
 const RootRedirect = () => {
   const { user, loading } = useAuth();
@@ -21,11 +22,21 @@ function App() {
         <Route
           path="/dashboard"
           element={
+            
             <ProtectedRoute>
               <Dashboard />
             </ProtectedRoute>
           }
-        />
+          />
+          <Route
+             path="/teams"
+             element={
+              <ProtectedRoute>
+                <Teams />
+             </ProtectedRoute>
+            }
+          />
+        
       </Routes>
     </BrowserRouter>
   );
