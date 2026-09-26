@@ -3,12 +3,28 @@ const User = require('../models/User');
 
 // GET /api/github/connect
 // Redirects the user to GitHub's authorization page
+const jwt = require('jsonwebtoken');
+
+// GET /api/github/connect?token=...
 const connectGithub = (req, res) => {
+  const { token } = req.query;
+
+  if (!token) {
+    return res.status(401).json({ message: 'Not authorized, no token' });
+  }
+
+  let decoded;
+  try {
+    decoded = jwt.verify(token, process.env.JWT_SECRET);
+  } catch (err) {
+    return res.status(401).json({ message: 'Not authorized, token invalid' });
+  }
+
   const params = new URLSearchParams({
     client_id: process.env.GITHUB_CLIENT_ID,
     redirect_uri: process.env.GITHUB_CALLBACK_URL,
-    scope: 'repo', // access to repos, commits, PRs
-    state: req.userId, // pass our user's ID through, so we know who this is when GitHub redirects back
+    scope: 'repo',
+    state: decoded.id,
   });
 
   res.redirect(`https://github.com/login/oauth/authorize?${params.toString()}`);
