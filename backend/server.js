@@ -7,6 +7,7 @@ const authRoutes = require('./src/routes/authRoute.js');
 const teamRoutes = require('./src/routes/teamRoutes');
 const projectRoutes = require('./src/routes/projectRoutes');
 const taskRoutes = require('./src/routes/taskRoutes');
+const githubRoutes = require('./src/routes/githubRoutes');
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/teams', teamRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
+app.use('/api/github', githubRoutes);
 connectDB();
 
 

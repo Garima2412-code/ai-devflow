@@ -18,6 +18,15 @@ const userSchema=new mongoose.Schema(
       type:String,
       required:true,
     },
+    githubAccessToken: {
+      type: String,
+      default: null,
+      select: false, 
+    },
+    githubUsername: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps:true }
 );
