@@ -1,29 +1,12 @@
 const express = require('express');
-
 const router = express.Router();
-
-const {
-  connectGithub,
-  githubCallback,
-  getGithubStatus,
-} = require('../controllers/githubController');
-
 const {
   listRepos,
   getProjectCommits,
   getProjectPulls,
 } = require('../controllers/githubDataController');
-
 const protect = require('../middleware/authMiddleware');
 
-// GitHub OAuth
-router.get('/connect', connectGithub);
-router.get('/callback', githubCallback);
-
-// GitHub connection status
-router.get('/status', protect, getGithubStatus);
-
-// GitHub data
 router.get('/repos', protect, listRepos);
 router.get('/projects/:projectId/commits', protect, getProjectCommits);
 router.get('/projects/:projectId/pulls', protect, getProjectPulls);

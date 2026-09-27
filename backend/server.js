@@ -9,9 +9,13 @@ const projectRoutes = require('./src/routes/projectRoutes');
 const taskRoutes = require('./src/routes/taskRoutes');
 const githubRoutes = require('./src/routes/githubRoutes');
 
+
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Backend is working' });
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/teams', teamRoutes);
 app.use('/api/projects', projectRoutes);
