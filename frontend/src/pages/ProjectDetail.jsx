@@ -4,9 +4,10 @@ import AppLayout from '../components/AppLayout';
 import Modal from '../components/Modal';
 import Input from '../components/Input';
 import KanbanColumn from '../components/KanbanColumn';
+import GithubPanel from '../components/GithubPanel';
+import TaskDetailModal from '../components/TaskDetailModal';
 import * as projectsApi from '../api/projects';
 import * as tasksApi from '../api/tasks';
-import GithubPanel from '../components/GithubPanel';
 
 const columns = [
   { key: 'todo', label: 'Todo' },
@@ -23,11 +24,15 @@ const ProjectDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  // "New Task" creation modal state
   const [modalOpen, setModalOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('medium');
   const [submitting, setSubmitting] = useState(false);
+
+  // Task detail modal state — separate from the creation modal above
+  const [selectedTask, setSelectedTask] = useState(null);
 
   const fetchData = async () => {
     try {
@@ -70,7 +75,6 @@ const ProjectDetail = () => {
   };
 
   const handleDrop = async (taskId, newStatus) => {
-    // Update local state immediately for a responsive feel (optimistic update)
     setTasks((prev) =>
       prev.map((t) => (t._id === taskId ? { ...t, status: newStatus } : t))
     );
@@ -78,10 +82,13 @@ const ProjectDetail = () => {
     try {
       await tasksApi.updateTaskStatus(taskId, newStatus);
     } catch (err) {
-      // If the backend call fails, re-fetch to revert to the real server state
       setError('Could not update task status.');
       fetchData();
     }
+  };
+
+  const handleTaskClick = (task) => {
+    setSelectedTask(task);
   };
 
   if (loading) {
@@ -114,27 +121,29 @@ const ProjectDetail = () => {
       )}
 
       <div className="flex gap-6">
-  <div className="flex-1 overflow-x-auto -mx-3">
-    {columns.map((col) => (
-      <KanbanColumn
-        key={col.key}
-        title={col.label}
-        status={col.key}
-        tasks={tasks.filter((t) => t.status === col.key)}
-        onDragStart={handleDragStart}
-        onDrop={handleDrop}
-      />
-    ))}
-  </div>
+        <div className="flex-1 overflow-x-auto -mx-3">
+          {columns.map((col) => (
+            <KanbanColumn
+              key={col.key}
+              title={col.label}
+              status={col.key}
+              tasks={tasks.filter((t) => t.status === col.key)}
+              onDragStart={handleDragStart}
+              onDrop={handleDrop}
+              onTaskClick={handleTaskClick}
+            />
+          ))}
+        </div>
 
-  <div className="w-80 shrink-0">
-    <GithubPanel
-      project={project}
-      onRepoLinked={(updatedProject) => setProject(updatedProject)}
-    />
-  </div>
-</div>
+        <div className="w-80 shrink-0">
+          <GithubPanel
+            project={project}
+            onRepoLinked={(updatedProject) => setProject(updatedProject)}
+          />
+        </div>
+      </div>
 
+      {/* "New Task" creation modal — controlled by modalOpen */}
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title="New Task">
         <form onSubmit={handleCreateTask}>
           <Input
@@ -172,6 +181,13 @@ const ProjectDetail = () => {
           </button>
         </form>
       </Modal>
+
+      {/* Task detail + AI analysis modal — controlled by selectedTask, NOT modalOpen */}
+      <TaskDetailModal
+        task={selectedTask}
+        isOpen={!!selectedTask}
+        onClose={() => setSelectedTask(null)}
+      />
     </AppLayout>
   );
 };

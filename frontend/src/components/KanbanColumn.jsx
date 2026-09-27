@@ -1,6 +1,13 @@
 import TaskCard from './TaskCard';
 
-const KanbanColumn = ({ title, status, tasks, onDragStart, onDrop }) => {
+const KanbanColumn = ({
+  title,
+  status,
+  tasks,
+  onDragStart,
+  onDrop,
+  onTaskClick,
+}) => {
   const handleDragOver = (e) => {
     e.preventDefault(); // required — without this, onDrop never fires
   };
@@ -21,12 +28,20 @@ const KanbanColumn = ({ title, status, tasks, onDragStart, onDrop }) => {
         <h3 className="text-section-heading font-semibold text-text-primary">
           {title}
         </h3>
-        <span className="text-small text-text-tertiary">{tasks.length}</span>
+
+        <span className="text-small text-text-tertiary">
+          {tasks.length}
+        </span>
       </div>
 
       <div className="flex flex-col gap-2">
         {tasks.map((task) => (
-          <TaskCard key={task._id} task={task} onDragStart={onDragStart} />
+          <TaskCard
+            key={task._id}
+            task={task}
+            onDragStart={onDragStart}
+            onClick={() => onTaskClick(task)}
+          />
         ))}
       </div>
     </div>

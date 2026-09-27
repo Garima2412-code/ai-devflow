@@ -4,11 +4,12 @@ const priorityColors = {
   low: 'bg-priority-low',
 };
 
-const TaskCard = ({ task, onDragStart }) => {
+const TaskCard = ({ task, onDragStart , onClick}) => {
   return (
     <div
       draggable
       onDragStart={(e) => onDragStart(e, task._id)}
+      onClick={onClick}
       className="border border-border rounded-sm bg-surface-0 cursor-grab active:cursor-grabbing
                  hover:border-text-tertiary transition-colors overflow-hidden"
     >
