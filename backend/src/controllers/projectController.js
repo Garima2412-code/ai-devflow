@@ -85,4 +85,23 @@ const getProjectById = async (req, res) => {
   }
 };
 
-module.exports = { createProject, getProjectsByTeam, getProjectById };
+// GET /api/projects
+const getMyProjects = async (req, res) => {
+  try {
+    // First, find every team this user belongs to
+    const teams = await Team.find({ members: req.userId }).select('_id');
+    const teamIds = teams.map((team) => team._id);
+
+    // Then find every project belonging to any of those teams
+    const projects = await Project.find({ team: { $in: teamIds } })
+      .populate('team', 'name')
+      .populate('createdBy', 'name email');
+
+    res.status(200).json(projects);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+
+module.exports = { createProject, getProjectsByTeam, getProjectById, getMyProjects };
+

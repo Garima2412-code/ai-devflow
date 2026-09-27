@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Teams from './pages/Teams';
 import TeamDetail from './pages/TeamDetail';
 import ProjectDetail from './pages/ProjectDetail';
+import AllProjects from './pages/AllProjects.jsx';
 
 const RootRedirect = () => {
   const { user, loading } = useAuth();
@@ -51,6 +52,14 @@ function App() {
             element={
             <ProtectedRoute>
                 <ProjectDetail />
+            </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+            <ProtectedRoute>
+                <AllProjects />
             </ProtectedRoute>
             }
           />

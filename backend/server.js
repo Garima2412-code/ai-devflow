@@ -8,6 +8,7 @@ const teamRoutes = require('./src/routes/teamRoutes');
 const projectRoutes = require('./src/routes/projectRoutes');
 const taskRoutes = require('./src/routes/taskRoutes');
 const githubRoutes = require('./src/routes/githubRoutes');
+const aiRoutes = require('./src/routes/aiRoutes');
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use('/api/teams', teamRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/github', githubRoutes);
+app.use('/api/ai', aiRoutes);
 connectDB();
 
 

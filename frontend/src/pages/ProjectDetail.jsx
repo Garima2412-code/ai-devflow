@@ -6,6 +6,7 @@ import Input from '../components/Input';
 import KanbanColumn from '../components/KanbanColumn';
 import * as projectsApi from '../api/projects';
 import * as tasksApi from '../api/tasks';
+import GithubPanel from '../components/GithubPanel';
 
 const columns = [
   { key: 'todo', label: 'Todo' },
@@ -112,18 +113,27 @@ const ProjectDetail = () => {
         </div>
       )}
 
-      <div className="flex overflow-x-auto -mx-3">
-        {columns.map((col) => (
-          <KanbanColumn
-            key={col.key}
-            title={col.label}
-            status={col.key}
-            tasks={tasks.filter((t) => t.status === col.key)}
-            onDragStart={handleDragStart}
-            onDrop={handleDrop}
-          />
-        ))}
-      </div>
+      <div className="flex gap-6">
+  <div className="flex-1 overflow-x-auto -mx-3">
+    {columns.map((col) => (
+      <KanbanColumn
+        key={col.key}
+        title={col.label}
+        status={col.key}
+        tasks={tasks.filter((t) => t.status === col.key)}
+        onDragStart={handleDragStart}
+        onDrop={handleDrop}
+      />
+    ))}
+  </div>
+
+  <div className="w-80 shrink-0">
+    <GithubPanel
+      project={project}
+      onRepoLinked={(updatedProject) => setProject(updatedProject)}
+    />
+  </div>
+</div>
 
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title="New Task">
         <form onSubmit={handleCreateTask}>
