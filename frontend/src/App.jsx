@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
@@ -9,17 +10,18 @@ import TeamDetail from './pages/TeamDetail';
 import ProjectDetail from './pages/ProjectDetail';
 import AllProjects from './pages/AllProjects.jsx';
 
-const RootRedirect = () => {
-  const { user, loading } = useAuth();
-  if (loading) return <div className="p-8 text-text-secondary">Loading...</div>;
-  return <Navigate to={user ? '/dashboard' : '/login'} replace />;
+const Home = () => {
+  const { user } = useAuth();
+  if (user) return <Navigate to="/dashboard" replace />;
+  return <Landing />;
 };
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<RootRedirect />} />
+        
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route
