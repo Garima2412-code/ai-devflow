@@ -167,7 +167,7 @@ const Teams = () => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-500 to-accent text-white text-sm font-bold flex items-center justify-center shadow-xs">
+                    <div className="w-9 h-9 rounded-lg bg-text-primary text-surface-0 dark:bg-white dark:text-black text-sm font-bold flex items-center justify-center shadow-xs">
                       {team.name ? team.name.charAt(0).toUpperCase() : 'T'}
                     </div>
 

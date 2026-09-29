@@ -89,7 +89,7 @@ const TopBar = ({ breadcrumb }) => {
             aria-label="Open user menu"
             className="flex items-center gap-2 p-1 rounded-lg hover:bg-surface-1 transition-colors cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-lg bg-accent text-white text-xs font-semibold flex items-center justify-center shadow-xs ring-1 ring-white/20">
+            <div className="w-8 h-8 rounded-lg bg-text-primary text-surface-0 dark:bg-white dark:text-black text-xs font-semibold flex items-center justify-center shadow-xs ring-1 ring-white/20">
               {user?.name?.charAt(0).toUpperCase() || 'U'}
             </div>
           </button>
@@ -103,7 +103,7 @@ const TopBar = ({ breadcrumb }) => {
                 <p className="text-xs text-text-secondary truncate mt-0.5">
                   {user?.email}
                 </p>
-                <div className="flex items-center gap-1.5 mt-2 text-[10.5px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded w-fit">
+                <div className="flex items-center gap-1.5 mt-2 text-[10.5px] font-mono text-emerald-600 dark:text-neutral-300 bg-emerald-500/10 dark:bg-white/10 dark:border dark:border-white/15 px-2 py-0.5 rounded w-fit">
                   <ShieldCheck size={12} />
                   <span>Authenticated</span>
                 </div>

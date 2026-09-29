@@ -144,13 +144,13 @@ const TaskDetailModal = ({ task, isOpen, onClose }) => {
         <div className="rounded-xl border border-border/80 bg-surface-1/40 p-4 sm:p-5 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-amber-500 to-accent text-white flex items-center justify-center shadow-xs">
+              <div className="w-7 h-7 rounded-lg bg-text-primary text-surface-0 dark:bg-white dark:text-black flex items-center justify-center shadow-xs">
                 <Sparkles size={14} />
               </div>
               <div>
                 <h4 className="text-xs font-bold text-text-primary flex items-center gap-1.5">
                   <span>Gemini Issue Triage Copilot</span>
-                  <span className="px-1.5 py-0.2 rounded text-[9.5px] font-mono font-medium bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                  <span className="px-1.5 py-0.2 rounded text-[9.5px] font-mono font-medium bg-surface-2 text-text-primary dark:text-white border border-border">
                     AI 2.5
                   </span>
                 </h4>

@@ -128,7 +128,7 @@ const Landing = () => {
         {/* Hero Section */}
         <section className="relative pt-20 pb-16 px-6 overflow-hidden bg-grid-pattern">
           {/* Subtle Ambient Radial Highlight */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-accent/10 rounded-full blur-[100px] pointer-events-none -z-10" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-accent/10 dark:bg-white/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
             {/* Pill badge */}
@@ -140,7 +140,7 @@ const Landing = () => {
             {/* Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary leading-[1.15]">
               Issue tracking designed for developers who live in{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-text-primary to-neutral-500 dark:from-white dark:to-neutral-400">
                 GitHub
               </span>
               .
@@ -451,9 +451,9 @@ const Landing = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl bg-surface-1/50 border border-border hover:border-slate-400 dark:hover:border-slate-600 transition-all flex flex-col justify-between">
+            <div className="p-6 rounded-xl bg-surface-1/50 border border-border hover:border-slate-400 dark:hover:border-neutral-600 transition-all flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-surface-2 dark:bg-white/10 text-text-primary dark:text-white flex items-center justify-center mb-4">
                   <Layers size={20} />
                 </div>
                 <h3 className="text-base font-semibold text-text-primary mb-2">
@@ -464,14 +464,14 @@ const Landing = () => {
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-border/70 flex items-center gap-2 text-[11px] font-mono text-text-tertiary">
-                <CheckCircle2 size={13} className="text-emerald-500" />
+                <CheckCircle2 size={13} className="text-text-primary dark:text-white" />
                 <span>Drag &amp; drop state machine</span>
               </div>
             </div>
 
-            <div className="p-6 rounded-xl bg-surface-1/50 border border-border hover:border-slate-400 dark:hover:border-slate-600 transition-all flex flex-col justify-between">
+            <div className="p-6 rounded-xl bg-surface-1/50 border border-border hover:border-slate-400 dark:hover:border-neutral-600 transition-all flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-lg bg-violet-500/10 text-violet-500 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-surface-2 dark:bg-white/10 text-text-primary dark:text-white flex items-center justify-center mb-4">
                   <GitPullRequest size={20} />
                 </div>
                 <h3 className="text-base font-semibold text-text-primary mb-2">
@@ -482,14 +482,14 @@ const Landing = () => {
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-border/70 flex items-center gap-2 text-[11px] font-mono text-text-tertiary">
-                <CheckCircle2 size={13} className="text-emerald-500" />
+                <CheckCircle2 size={13} className="text-text-primary dark:text-white" />
                 <span>OAuth 2.0 &amp; live commit stream</span>
               </div>
             </div>
 
-            <div className="p-6 rounded-xl bg-surface-1/50 border border-border hover:border-slate-400 dark:hover:border-slate-600 transition-all flex flex-col justify-between">
+            <div className="p-6 rounded-xl bg-surface-1/50 border border-border hover:border-slate-400 dark:hover:border-neutral-600 transition-all flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-surface-2 dark:bg-white/10 text-text-primary dark:text-white flex items-center justify-center mb-4">
                   <Sparkles size={20} />
                 </div>
                 <h3 className="text-base font-semibold text-text-primary mb-2">
@@ -500,7 +500,7 @@ const Landing = () => {
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-border/70 flex items-center gap-2 text-[11px] font-mono text-text-tertiary">
-                <CheckCircle2 size={13} className="text-emerald-500" />
+                <CheckCircle2 size={13} className="text-text-primary dark:text-white" />
                 <span>Root causes &amp; actionable subtasks</span>
               </div>
             </div>

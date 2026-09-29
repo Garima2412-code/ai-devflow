@@ -41,7 +41,7 @@ const Signup = () => {
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-surface-0 bg-grid-pattern relative overflow-hidden">
       {/* Subtle Ambient Radial Highlight */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-accent/10 rounded-full blur-[90px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-accent/10 dark:bg-white/5 rounded-full blur-[90px] pointer-events-none -z-10" />
 
       <div className="w-full max-w-md border border-border rounded-2xl bg-surface-0/95 backdrop-blur-md shadow-2xl p-8 ring-1 ring-black/5">
         <div className="flex flex-col items-center text-center mb-6">

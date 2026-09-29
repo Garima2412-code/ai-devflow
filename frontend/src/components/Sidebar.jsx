@@ -77,7 +77,7 @@ const Sidebar = () => {
         <div className="px-3 pt-2">
           <div className="p-3 rounded-lg border border-border/70 bg-surface-0/60 flex flex-col gap-2">
             <div className="flex items-center gap-1.5 text-xs font-semibold text-text-primary">
-              <Sparkles size={14} className="text-amber-500" />
+              <Sparkles size={14} className="text-text-primary dark:text-white" />
               <span>Gemini AI Engine</span>
             </div>
             <p className="text-[11.5px] text-text-secondary leading-relaxed">
@@ -91,7 +91,7 @@ const Sidebar = () => {
       <div className="p-3 border-t border-border/80 flex flex-col gap-2 bg-surface-1/40">
         <div className="flex items-center justify-between px-2 py-1">
           <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-accent-hover text-white text-xs font-semibold flex items-center justify-center shrink-0 shadow-xs ring-1 ring-white/10">
+            <div className="w-8 h-8 rounded-lg bg-text-primary text-surface-0 dark:bg-white dark:text-black text-xs font-semibold flex items-center justify-center shrink-0 shadow-xs ring-1 ring-white/10">
               {user?.name?.charAt(0).toUpperCase() || 'U'}
             </div>
             <div className="min-w-0 truncate">

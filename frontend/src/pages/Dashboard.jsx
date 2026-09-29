@@ -136,10 +136,10 @@ const Dashboard = () => {
 
       {/* KPI Metric Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
-        <div className="p-4 rounded-xl bg-surface-0 border border-border shadow-xs hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+        <div className="p-4 rounded-xl bg-surface-0 border border-border shadow-xs hover:border-slate-300 dark:hover:border-neutral-600 transition-all">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-text-secondary">Active Projects</span>
-            <div className="w-7 h-7 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-surface-2 dark:bg-white/10 text-text-primary dark:text-white flex items-center justify-center">
               <FolderKanban size={15} />
             </div>
           </div>
@@ -151,17 +151,17 @@ const Dashboard = () => {
           </p>
         </div>
 
-        <div className="p-4 rounded-xl bg-surface-0 border border-border shadow-xs hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+        <div className="p-4 rounded-xl bg-surface-0 border border-border shadow-xs hover:border-slate-300 dark:hover:border-neutral-600 transition-all">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-text-secondary">GitHub Sync</span>
-            <div className="w-7 h-7 rounded-lg bg-surface-2 text-text-primary flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-surface-2 dark:bg-white/10 text-text-primary dark:text-white flex items-center justify-center">
               <GithubIcon size={15} />
             </div>
           </div>
           <div className="flex items-center gap-2 mt-2">
             <span
               className={`w-2 h-2 rounded-full ${
-                githubStatus?.connected ? 'bg-emerald-500' : 'bg-amber-500'
+                githubStatus?.connected ? 'bg-emerald-500 dark:bg-white' : 'bg-amber-500 dark:bg-neutral-500'
               }`}
             />
             <p className="text-base font-semibold text-text-primary truncate">
@@ -173,10 +173,10 @@ const Dashboard = () => {
           </p>
         </div>
 
-        <div className="p-4 rounded-xl bg-surface-0 border border-border shadow-xs hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+        <div className="p-4 rounded-xl bg-surface-0 border border-border shadow-xs hover:border-slate-300 dark:hover:border-neutral-600 transition-all">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-text-secondary">Gemini Copilot</span>
-            <div className="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-surface-2 dark:bg-white/10 text-text-primary dark:text-white flex items-center justify-center">
               <Sparkles size={15} />
             </div>
           </div>
@@ -188,10 +188,10 @@ const Dashboard = () => {
           </p>
         </div>
 
-        <div className="p-4 rounded-xl bg-surface-0 border border-border shadow-xs hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+        <div className="p-4 rounded-xl bg-surface-0 border border-border shadow-xs hover:border-slate-300 dark:hover:border-neutral-600 transition-all">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-text-secondary">Engineering Teams</span>
-            <div className="w-7 h-7 rounded-lg bg-violet-500/10 text-violet-500 flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-surface-2 dark:bg-white/10 text-text-primary dark:text-white flex items-center justify-center">
               <Users size={15} />
             </div>
           </div>

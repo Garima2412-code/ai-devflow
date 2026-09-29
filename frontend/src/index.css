@@ -15,9 +15,10 @@
   --color-text-tertiary: #94a3b8;
 
   /* Accent */
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-subtle: #eff6ff;
+  --color-accent: #0f172a;
+  --color-accent-hover: #1e293b;
+  --color-accent-subtle: #f1f5f9;
+  --color-accent-fg: #ffffff;
 
   /* Semantic - Priority */
   --color-priority-high: #e11d48;
@@ -26,8 +27,8 @@
 
   /* Semantic - Status */
   --color-status-todo: #64748b;
-  --color-status-progress: #2563eb;
-  --color-status-review: #7c3aed;
+  --color-status-progress: #0f172a;
+  --color-status-review: #737373;
   --color-status-done: #059669;
 
   /* Typography */
@@ -64,44 +65,64 @@
   --color-text-secondary: #475569;
   --color-text-tertiary: #94a3b8;
 
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-subtle: #eff6ff;
+  --color-accent: #0f172a;
+  --color-accent-hover: #1e293b;
+  --color-accent-subtle: #f1f5f9;
+  --color-accent-fg: #ffffff;
 
   --color-priority-high: #e11d48;
   --color-priority-medium: #d97706;
   --color-priority-low: #64748b;
 
   --color-status-todo: #64748b;
-  --color-status-progress: #2563eb;
-  --color-status-review: #7c3aed;
+  --color-status-progress: #0f172a;
+  --color-status-review: #737373;
   --color-status-done: #059669;
+
+  /* Spotlight effect tokens */
+  --spotlight-border: rgba(15, 23, 42, 0.16);
+  --spotlight-color: rgba(15, 23, 42, 0.035);
 }
 
+/* ==========================================================
+   MONOCHROME BLACK THEME (DARK MODE)
+   Pure OLED Black (#000000), Pitch Black Surfaces,
+   Crisp #262626 Hairline Borders & High-Contrast Typography
+   ========================================================== */
 .dark {
-  --color-surface-0: #0b0f17;
-  --color-surface-1: #111726;
-  --color-surface-2: #192238;
-  --color-surface-3: #222f4c;
-  --color-border: #1e293b;
-  --color-border-subtle: #151d2c;
+  /* Pitch Black OLED Surfaces */
+  --color-surface-0: #000000;
+  --color-surface-1: #0a0a0a;
+  --color-surface-2: #121212;
+  --color-surface-3: #1a1a1a;
+  --color-border: #262626;
+  --color-border-subtle: #171717;
 
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #94a3b8;
-  --color-text-tertiary: #64748b;
+  /* Monochrome High-Contrast Text */
+  --color-text-primary: #ededed;
+  --color-text-secondary: #a1a1a1;
+  --color-text-tertiary: #666666;
 
-  --color-accent: #3b82f6;
-  --color-accent-hover: #60a5fa;
-  --color-accent-subtle: rgba(59, 130, 246, 0.12);
+  /* Monochrome White Accent */
+  --color-accent: #ffffff;
+  --color-accent-hover: #e5e5e5;
+  --color-accent-subtle: rgba(255, 255, 255, 0.08);
+  --color-accent-fg: #000000;
 
-  --color-priority-high: #fb7185;
-  --color-priority-medium: #fbbf24;
-  --color-priority-low: #94a3b8;
+  /* Semantic Priorities in Monochrome Dark */
+  --color-priority-high: #ff453a;
+  --color-priority-medium: #ffd60a;
+  --color-priority-low: #737373;
 
-  --color-status-todo: #94a3b8;
-  --color-status-progress: #60a5fa;
-  --color-status-review: #a78bfa;
+  /* Semantic Statuses */
+  --color-status-todo: #737373;
+  --color-status-progress: #ffffff;
+  --color-status-review: #a3a3a3;
   --color-status-done: #34d399;
+
+  /* Spotlight effect tokens for Monochrome Dark */
+  --spotlight-border: rgba(255, 255, 255, 0.32);
+  --spotlight-color: rgba(255, 255, 255, 0.07);
 }
 
 * {
@@ -115,6 +136,17 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Selection */
+::selection {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.dark ::selection {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* Custom Dev Scrollbars */
@@ -136,24 +168,32 @@ html, body {
   background: var(--color-text-tertiary);
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: #262626;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
 /* Dot Grid Background for Hero & Tech Accents */
 .bg-grid-pattern {
-  background-image: radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .dark .bg-grid-pattern {
-  background-image: radial-gradient(rgba(100, 116, 139, 0.22) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Subtle code glow */
+/* Monochrome Subtle Glow */
 .dev-glow {
-  box-shadow: 0 0 20px -3px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 20px -3px rgba(15, 23, 42, 0.08);
 }
 
 .dark .dev-glow {
-  box-shadow: 0 0 30px -4px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 30px -4px rgba(255, 255, 255, 0.06);
 }
 
 /* Base button and interactive elements transition */
@@ -165,4 +205,60 @@ button, a {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* ==========================================================
+   Monochrome Black Dark Mode Button & Element Overrides
+   ========================================================== */
+.dark button.bg-accent,
+.dark a.bg-accent {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.dark button.bg-accent:hover,
+.dark a.bg-accent:hover {
+  background-color: #e5e5e5 !important;
+  color: #000000 !important;
+}
+
+.dark button.bg-accent svg,
+.dark a.bg-accent svg {
+  color: #000000 !important;
+}
+
+.dark .text-accent {
+  color: #ffffff !important;
+}
+
+.dark .bg-accent\/5 {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.dark .bg-accent\/10 {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark .bg-accent\/20 {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.dark .border-accent\/20 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark .border-accent\/30 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.dark .border-accent\/40 {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.dark .border-accent\/50 {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark .border-accent {
+  border-color: #ffffff !important;
 }
