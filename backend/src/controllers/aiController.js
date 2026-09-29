@@ -23,9 +23,12 @@ const analyzeTask = async (req, res) => {
 
     res.status(200).json(analysis);
   } catch (err) {
-    console.error('AI analysis error:', err);
-    res.status(500).json({ message: 'Could not analyze this issue right now. Please try again.' });
+  console.error('AI analysis error:', err.message);
+  if (err.status === 503) {
+    return res.status(503).json({ message: 'AI service is temporarily busy. Please try again in a moment.' });
   }
+  res.status(500).json({ message: 'Could not analyze this issue right now. Please try again.' });
+}
 };
 
 module.exports = { analyzeTask };
