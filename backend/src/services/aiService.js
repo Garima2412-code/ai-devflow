@@ -3,7 +3,9 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const analyzeIssue = async (title, description) => {
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+  const model = genAI.getGenerativeModel({
+  model: 'gemini-3.5-flash-lite',
+});
 
   const prompt = `You are a senior software engineer helping a developer break down a bug report or feature request into actionable investigation steps.
 
@@ -22,7 +24,28 @@ Rules:
 - suggestedTasks: 3-5 short, concrete, actionable sub-tasks a developer could create and check off, specific to this exact issue.
 - Do not include any text outside the JSON object.`;
 
-  const result = await model.generateContent(prompt);
+  let result;
+
+for (let attempt = 1; attempt <= 3; attempt++) {
+  try {
+    result = await model.generateContent(prompt);
+    break;
+  } catch (err) {
+    const status = err.status || err.response?.status;
+
+    if ((status === 503 || status === 429) && attempt < 3) {
+      const delay = 1000 * Math.pow(2, attempt - 1);
+
+      console.log(
+        `Gemini temporarily unavailable. Retrying in ${delay}ms...`
+      );
+
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    } else {
+      throw err;
+    }
+  }
+}
   const responseText = result.response.text();
 
   // Gemini sometimes wraps JSON in markdown code fences despite instructions —
