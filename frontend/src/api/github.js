@@ -7,9 +7,8 @@ export const getGithubStatus = async () => {
 
 export const getConnectUrl = () => {
   const token = localStorage.getItem('token');
-  return `http://localhost:5001/api/github/connect?token=${token}`;
+  return `${import.meta.env.VITE_API_URL}/github/connect?token=${token}`;
 };
-
 export const listRepos = async () => {
   const response = await api.get('/github/repos');
   return response.data;
